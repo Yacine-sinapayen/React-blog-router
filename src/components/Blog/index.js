@@ -4,7 +4,11 @@ import './style.scss';
 
 function Blog() {
   return (
-    <div className="blog"> Blog  </div>
+    <div>
+      <header>  Header  </header>
+      <main> Posts </main>
+      <footer> Footer </footer>
+    </div>
   );
 }
 
