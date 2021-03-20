@@ -4,7 +4,17 @@ import './style.scss';
 
 function Header() {
   return (
-    <header>Header</header>
+    <header className="header">
+      <nav>
+        <ul>
+          <li><a href="/" className="header__link">Acceuil</a></li>
+          <li><a href="/angular" className="header__link">Angular</a></li>
+          <li><a href="/react" className="header__link">React</a></li>
+          <li><a href="/oclock" className="header__link">O'clock</a></li>
+          <li><a href="/autres" className="header__link">Autres</a></li>
+        </ul>
+      </nav>
+    </header>
   );
 }
 

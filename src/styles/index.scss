@@ -1,8 +1,14 @@
 @use 'vars';
 
 body {
-  font-family: sans-serif;
   font-family: vars.$global-font;
   font-weight: vars.$global-font-weight;
   line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  line-height: 1.2;
 }

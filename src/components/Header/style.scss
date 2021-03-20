@@ -1,0 +1,17 @@
+@use 'src/styles/vars' as v;
+.header {
+  border-bottom: 1px solid v.$alt-color;
+  margin-bottom: v.$gutter;
+  text-align: center;
+  li {
+    display: inline-block;
+  }
+  &__link {
+    display: inline-block;
+    padding: v.$gutter;
+    &:hover , &--selected {
+      color: v.$primary-color;
+    } 
+  }
+    
+}
