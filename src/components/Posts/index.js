@@ -2,17 +2,20 @@ import React from 'react';
 import Post from './Post';
 import './style.scss';
 
-// métgode BEM = Bloc Element Modifier
-
+// BEM = Bloc Element Modifier
 function Posts() {
   return (
     <main className="posts">
-      <h1>Dev of Thrones</h1>
-      <ul>
+      <h1 className="posts__title">Dev of Thrones</h1>
+      <ul className="posts__list">
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
         <Post />
       </ul>
     </main>
   );
 }
-
 export default Posts;

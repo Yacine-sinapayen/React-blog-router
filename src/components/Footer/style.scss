@@ -2,10 +2,10 @@
 
 .footer {
   background-color: v.$dark-color;
-  padding: v.$gutter;
+  padding: v.$gutter *2;
   text-align: center;
 
   &__content {
-    color: v.$alt-color;
+    color: v.$alt-color ;
   }
 }

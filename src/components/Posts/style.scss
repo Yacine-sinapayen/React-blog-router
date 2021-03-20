@@ -1,0 +1,53 @@
+@use 'src/styles/vars' as v; 
+
+.posts {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  &__title {
+    text-transform: uppercase;
+    color: v.$primary-color;
+    text-align: center;
+    font-family: v.$title-font;
+    font-weight: v.$title-font-weight;
+    font-size: 2em;
+    margin-bottom: v.$gutter;
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: v.$gutter;
+  }
+}
+
+.post {
+  padding: v.$gutter ; 
+  width: 50%;
+  list-style-type: none;
+  &:hover {
+    background-color: v.$post-hover-color ;
+    cursor: pointer;
+  }
+  &__title {
+    font-family: v.$title-font;
+    font-weight: v.$title-font-weight;
+    color : v.$title-color;
+    text-transform: uppercase;
+    font-size: 1.5 em;
+    margin-bottom: v.$gutter / 3;
+  }
+
+  &__category {
+      background-color: v.$primary-color;
+      color : v.$light-color;
+      display: inline-block;
+      margin-bottom: v.$gutter / 3;
+      padding: v.$gutter / 5 v.$gutter / 4;
+      text-transform: uppercase;
+      font-size: .8em ;
+  }
+
+  &__content {
+    color : v.$post-text-color
+  }
+}
