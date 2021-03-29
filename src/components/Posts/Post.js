@@ -1,15 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function Post() {
+function Post({ title, category, excerpt }) {
   return (
     <li className="post">
       <article>
-        <h2 className="post__title"> Titre du post </h2>
-        <div className="post__category"> Category</div>
-        <p className="post__content"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, ipsum labore amet quisquam excepturi dolores soluta alias quis ducimus rem sequi, corrupti incidunt laboriosam dicta dignissimos vero velit! Eveniet, iusto. </p>
+        <h2 className="post__title"> {title} </h2>
+        <div className="post__category"> {category} </div>
+        <p className="post__content"> {excerpt} </p>
       </article>
     </li>
   );
 }
+
+Post.propTypes = {
+  title: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  excerpt: PropTypes.string.isRequired,
+};
 
 export default Post;
