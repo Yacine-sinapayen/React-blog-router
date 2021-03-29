@@ -1,21 +1,34 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import './style.scss';
 
-function Header() {
+function Header({ categories }) {
+  const menu = categories.map((category) => (
+    <li key={category.route}>
+      <a href={category.route} className="header__link">
+        {category.label}
+      </a>
+    </li>
+  ));
+
   return (
     <header className="header">
       <nav>
         <ul>
-          <li><a href="/" className="header__link header__link--selected">Accueil</a></li>
-          <li><a href="/angular" className="header__link">Angular</a></li>
-          <li><a href="/react" className="header__link">React</a></li>
-          <li><a href="/oclock" className="header__link">O'clock</a></li>
-          <li><a href="/autres" className="header__link">Autres</a></li>
+          {menu}
         </ul>
       </nav>
     </header>
   );
 }
+
+Header.propTypes = {
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      route: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
 
 export default Header;
