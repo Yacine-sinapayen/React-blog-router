@@ -6,8 +6,8 @@ import './style.scss';
 function Header({ categories }) {
   const menu = categories.map((category) => (
     <li key={category.route}>
-      <NavLink 
-        to={category.route} 
+      <NavLink
+        to={category.route}
         className="header__link"
         activeClassName="header__link--selected"
         exact
