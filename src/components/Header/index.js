@@ -1,14 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {link} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './style.scss';
 
 function Header({ categories }) {
   const menu = categories.map((category) => (
     <li key={category.route}>
-      <a href={category.route} className="header__link">
+      <NavLink 
+        to={category.route} 
+        className="header__link"
+        activeClassName="header__link--selected"
+        exact
+      >
+
         {category.label}
-      </a>
+      </NavLink>
     </li>
   ));
 
