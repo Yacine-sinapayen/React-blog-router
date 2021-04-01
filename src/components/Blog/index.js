@@ -1,33 +1,21 @@
-/* eslint-disable arrow-body-style */
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import Header from 'src/components/Header';
 import Posts from 'src/components/Posts';
 import Footer from 'src/components/Footer';
+import NotFound from 'src/components/NotFound';
 
 import categoriesData from 'src/data/categories';
 import postsData from 'src/data/posts';
+import { getPostsByCategory } from 'src/selectors';
 
 import './style.scss';
 
 function Blog() {
   // eslint-disable-next-line arrow-body-style
   const routes = categoriesData.map((category) => {
-  // Par default je vais placer toutes les données des posts dans postsList
-  let postsList = postsData;
-
-    // on va filtrer les posts par  category
-    // le point en commun entre les objets de catégories
-    // et les objets de post : propriété category.label et
-    // propriété post.category
-    if(category.label !== 'Accueil') {
-      postsList = postsData.filter((post) => {
-        // ici je détermine si je category.label est égal à post.category
-        return post.category === category.label;
-      });
-    }
-
+    const postsList = getPostsByCategory(category.label, postsData);
     return (
       <Route
         path={category.route}
@@ -42,8 +30,12 @@ function Blog() {
   return (
     <div className="blog">
       <Header categories={categoriesData} />
-      {routes}
-      {/* <Posts posts={postsData} /> */}
+      <Switch>
+        {routes}
+        <Route>
+          <NotFound />
+        </Route>
+      </Switch>
       <Footer />
     </div>
   );

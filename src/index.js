@@ -12,7 +12,7 @@ import Blog from 'src/components/Blog';
 
 const rootReactElement = (
   <BrowserRouter>
-    <Blog />;
+    <Blog />
   </BrowserRouter>
 );
 // 2. La cible du DOM (là où la structure doit prendre vie dans le DOM)

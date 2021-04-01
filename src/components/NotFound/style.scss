@@ -1,0 +1,121 @@
+@use 'src/styles/vars';
+.not-found__container {
+  min-height: 350px;
+  overflow: hidden;
+}
+.notFound {
+  position: relative;
+  top: 4em;
+  text-align: center;
+  font-family: vars.$title-font;
+  font-weight: vars.$title-font-weight;
+  display: grid;
+  place-items: center;
+  animation: big-load vars.$nav-load-time ease-in;
+
+  & h4 {
+    font-size: 10em;
+    line-height: .8em;
+  }
+
+  & p {
+    font-size: 4em;
+  }
+
+  &--animTop {
+    display: flex;
+    flex-direction: row;
+
+    &--one {
+      transform: translateY(-500%);
+      animation: big-load-one vars.$nav-load-time ease-in;
+      animation-fill-mode: forwards;
+
+    }
+
+    &--two {
+      transform: translateY(-500%);
+      animation-delay: vars.$nav-load-time;
+      animation-name: big-load-two;
+      animation-duration:  vars.$nav-load-time;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in;
+    }
+
+    &--three { 
+      transform: translateY(-500%); 
+      animation-delay: vars.$nav-load-time * 2;
+      animation-name: big-load-three;
+      animation-duration:  vars.$nav-load-time;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in;
+    }
+
+    &--four {  
+      transform: translateY(+500%);
+      animation-delay: vars.$nav-load-time * 4 ;
+      animation-name: big-load-four;
+      animation-duration:  vars.$nav-load-time;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in;
+    }
+
+  }
+}
+
+@keyframes big-load {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateY(500%);
+  }
+}
+
+@keyframes big-load-one {
+  0% {
+    transform: translateY(-500%);
+  }
+  80% {
+    transform: translateY(40%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes big-load-two {
+  0% {
+    transform: translateY(-500%);
+  }
+  80% {
+    transform: translateY(40%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes big-load-three {
+  0% {
+    transform: translateY(-500%);
+  }
+  80% {
+    transform: translateY(40%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes big-load-four {
+  0% {
+    transform: translateY(500%);
+  }
+  80% {
+    transform: translateY(-40%);
+  }
+  100% {
+    transform: translateY(10%);
+  }
+}
