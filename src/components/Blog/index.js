@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Header from 'src/components/Header';
@@ -13,9 +13,14 @@ import { getPostsByCategory } from 'src/selectors';
 import './style.scss';
 
 function Blog() {
+
+const [posts, setPosts] = useState([]);
+const [loading, setLoading] = useState(false);
+
+
   // eslint-disable-next-line arrow-body-style
   const routes = categoriesData.map((category) => {
-    const postsList = getPostsByCategory(category.label, postsData);
+    const postsList = getPostsByCategory(category.label, posts);
     return (
       <Route
         path={category.route}
@@ -30,6 +35,9 @@ function Blog() {
   return (
     <div className="blog">
       <Header categories={categoriesData} />
+      <button type="button" onClick={() => setLoading(true)}> Load Data </button>
+      { loading && <div>Chargement des données</div>}
+      {!loading && (
       <Switch>
         {routes}
         <Redirect from="/jquery" to="/autre" />
@@ -37,6 +45,7 @@ function Blog() {
           <NotFound />
         </Route>
       </Switch>
+      )}
       <Footer />
     </div>
   );
