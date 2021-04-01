@@ -31,12 +31,21 @@ const [loading, setLoading] = useState(false);
       </Route>
     );
   });
+  const loadData = () => {
+    setLoading(true);
+    // je simule le chargement de données
+    setTimeout(() => {
+      console.log('ici je veux changer mon state');
+      setPosts(postsData);
+      setLoading(false);
+    }, 2000);
+  };
 
   return (
     <div className="blog">
       <Header categories={categoriesData} />
-      <button type="button" onClick={() => setLoading(true)}> Load Data </button>
-      { loading && <div>Chargement des données</div>}
+      <button type="button" onClick={loadData}> Load Data </button>
+      { loading && <div>Chargement des données ...</div>}
       {!loading && (
       <Switch>
         {routes}
